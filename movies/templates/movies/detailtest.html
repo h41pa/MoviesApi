@@ -1,0 +1,43 @@
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }}</title>
+
+</head>
+<body style="background-color: #031d33;">
+    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="background-color: #ffffff; padding: 20px; border-radius: 10px; width: 70%;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="width: 40%;">
+                    <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="{{ movie.title }}" style="width: 100%; height: auto;">
+                    <p style="text-align: center;">Release Date: {{ movie.release_date }}</p>
+                    <p style="text-align: center;">Votes: {{ movie.vote_average }}</p>
+                    <p style="text-align: center;">Status : {{ movie.status }}</p>
+                </div>
+                <div style="width: 55%;">
+                    <h2 style="text-align: left; margin-bottom: 10px; font-weight: bold;">{{ movie.title }}</h2>
+                    <p style="text-align: left; margin-bottom: 5px;"><strong>Genre:</strong>
+                        {% for genre in movie.genres %}
+                            {{ genre.name }}
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p style="text-align: left; margin-bottom: 5px;"><strong>Duration:</strong> {{ movie.runtime }} mins</p>
+                    <p style="text-align: left; margin-bottom: 5px;"><strong>Budget:</strong> {{ movie.budget }}</p>
+                    <p style="text-align: left; margin-bottom: 5px;"><strong>Overview:</strong> {{ movie.overview }}</p>
+                    <div style="text-align: left; margin-top: 20px;">
+                        <iframe width="560" height="315" src="{{ movie.trailer_link }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{% url 'movie_list' %}">Back to Movies List</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

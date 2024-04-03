@@ -1,0 +1,35 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+
+<title> {{ movie.title }}</title>
+
+<body class="body-movie">
+    <div class="container-movie">
+        <div class="movie-items">
+            <div class="back-movie">
+                 <div style="width: 40%;">
+                   <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path}}" alt="{{ movie.title }}" style="width: 100%; height: auto;">
+                   <p style="text-align: center;">Release Date: {{ movie.release_date }}</p>
+                   <p style="text-align: center;">Votes: {{ movie.vote_average}}</p>
+                   <p style="text-align: center;">Status: {{ movie.status }}</p>
+                </div>
+
+                <div style="width: 55%;">
+                   <h2 class="movie-title">{{ movie.title }}</h2>
+                    <p class="movies-infos"><strong>Genre:</strong>
+                    {% for genre in movie.genres %}
+                        {{ genre.name }}
+                        {%  if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                    </p>
+                    <p class=movies-infos""><strong>Duration:</strong> {{ movie.runtime}} mins</p>
+                    <p class=movies-infos""><strong>Budget:</strong> {{ movie.budget }}</p>
+                    <p class=movies-infos""><strong>Story: </strong> {{ movie.overview }} </p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{% url 'movie_list' %}"> Back to Movies List</a>
+            </div>
+        </div>
+    </div>
+</body>

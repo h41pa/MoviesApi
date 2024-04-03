@@ -1,0 +1,61 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Db API</title>
+
+</head>
+<body>
+    <div class="header">
+        <h1 class="page-title">Api Movies</h1>
+        <form method="get" action="{% url 'movie_list' %}">
+            <input type="text" name="query" placeholder="Search..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="movie-container">
+            {% for movie in movies %}
+                <div class="movie-item">
+                    <a href="{% url 'movie_detail' movie.id %}">
+                        <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
+                    </a>
+                    <h2 class="movie-title">{{ movie.title }}</h2>
+                    <p class="movie-release-date">Release Date: {{ movie.release_date }}</p>
+                    <p class="movie-votes">Votes: {{ movie.vote_average }}</p>
+                </div>
+                {% if forloop.counter|divisibleby:5 and not forloop.last %}
+                    <div style="flex-basis: 100%; height: 0;"></div> <!-- Create a new row -->
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="pagination-bar">
+        <div>
+            {% if prev_page %}
+                <a href="?page={{ prev_page }}" class="pagination-link">Previous</a>
+            {% endif %}
+        </div>
+
+        <div class="page-info">
+            <div class="page-info-inner">
+                Page {{ page_number }} of {{ total_pages }}
+            </div>
+        </div>
+
+        <div>
+            {% if next_page %}
+                <a href="?page={{ next_page }}" class="pagination-link">Next</a>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+</body>
+</html>

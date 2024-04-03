@@ -1,0 +1,124 @@
+/* styles.css */
+
+/* Header */
+.header {
+    background-color: #031d33;
+    padding: 10px;
+    text-align: center;
+    color: #fff; /* Adăugat culoarea textului pentru coerență */
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8F9F9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Movie Container */
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Movie Item */
+.movie-item {
+    margin: 20px;
+    text-align: center;
+    width: calc(25% - 40px);
+    max-width: 200px;
+}
+
+/* Movie Poster */
+.movie-poster {
+    width: 100%;
+    height: auto;
+}
+
+/* Movie Title */
+.movie-title {
+    margin-top: 10px;
+}
+
+/* Search Container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Search Input */
+.search-input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Search Button */
+.search-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Pagination Bar */
+.pagination-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #031d33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Pagination Link */
+.pagination-link, .page-info-inner {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 2px solid #007bff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-link:hover, .page-info-inner:hover {
+    background-color: #0056b3;
+}
+
+/* Page Info */
+.page-info {
+    margin: 0 10px;
+}
+
+.page-info-inner {
+    border-radius: 20px;
+    padding: 6px 12px;
+    border: 2px solid #007bff;
+    background-color: #007bff;
+    color: #fff;
+}
