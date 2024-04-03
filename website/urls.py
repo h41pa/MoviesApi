@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('movies/', include('movies.urls'), name='movies')
+    path('', include('movies.urls'), name='movies')
 ]
 
 # from django.conf import settings
