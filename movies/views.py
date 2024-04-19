@@ -1,6 +1,7 @@
 import requests
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+
 
 def movie_list(request):
     search_query = request.GET.get('query')
