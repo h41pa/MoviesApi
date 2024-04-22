@@ -2,7 +2,6 @@ import requests
 
 from django.shortcuts import render
 
-
 def movie_list(request):
     search_query = request.GET.get('query')
     page_number = request.GET.get('page', 1)
@@ -40,11 +39,10 @@ def movie_list(request):
         next_page = int(page_number) + 1
     else:
         next_page = None
-
-    return render(request, 'movies/index.html',
-                  {'movies': movies, 'search_query': search_query, 'total_pages': total_pages,
-                   'next_page': next_page, 'prev_page': prev_page, 'page_number': page_number
-                   })
+    context = {'movies': movies, 'search_query': search_query, 'total_pages': total_pages,
+               'next_page': next_page, 'prev_page': prev_page, 'page_number': page_number
+               }
+    return render(request, 'movies/index.html', context)
 
 
 def movie_detail(request, movie_id):
@@ -54,5 +52,8 @@ def movie_detail(request, movie_id):
     params = {'api_key': api_key}
     response = requests.get(f'{base_url}{endpoint}', params=params)
     movie = response.json()
+    context = {
+        'movie': movie
+    }
 
-    return render(request, 'movies/detail.html', {'movie': movie})
+    return render(request, 'movies/detail.html', context)

@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d7#$smap4$9wfntbda8uabp+57v6gm*=1t5i#-=q-&9#n$&56m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -124,4 +124,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TMDb_API_KEY = '07caae28dab3a3943e0d33a58d4a88fc'
+# TMDb_API_KEY = '07caae28dab3a3943e0d33a58d4a88fc'

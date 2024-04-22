@@ -12,7 +12,7 @@
        <h1 class="page-title"> Api Movies !</h1>
        <form method="get" action="{% url 'movie_list' %}">
            {% csrf_token %}
-           <input type="text" name="query" placeholder="Search..." class="search-input">
+           <input type="search" name="query" placeholder="Search..." class="search-input">
            <button type="submit" class="search-button">Search</button>
        </form>
    </div>
