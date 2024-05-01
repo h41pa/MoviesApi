@@ -6,7 +6,7 @@ from django.shortcuts import render
 def movie_list(request):
     if request.method == 'POST':
         search_query = request.POST.get('query')
-        page_number = 1
+        page_number = request.GET.get('page', 1)
     else:
         search_query = request.GET.get('query')
         page_number = request.GET.get('page', 1)
