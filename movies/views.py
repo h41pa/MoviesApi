@@ -4,8 +4,13 @@ from django.shortcuts import render
 
 
 def movie_list(request):
-    search_query = request.GET.get('query')
-    page_number = request.GET.get('page', 1)
+    if request.method == 'POST':
+        search_query = request.POST.get('query')
+        page_number = 1
+    else:
+        search_query = request.GET.get('query')
+        page_number = request.GET.get('page', 1)
+
 
     api_key = '07caae28dab3a3943e0d33a58d4a88fc'
     base_url = 'https://api.themoviedb.org/3'
@@ -40,9 +45,16 @@ def movie_list(request):
         next_page = int(page_number) + 1
     else:
         next_page = None
-    context = {'movies': movies, 'search_query': search_query, 'total_pages': total_pages,
-               'next_page': next_page, 'prev_page': prev_page, 'page_number': page_number
-               }
+
+    context = {
+        'movies': movies,
+        'search_query': search_query,
+        'total_pages': total_pages,
+        'next_page': next_page,
+        'prev_page': prev_page,
+        'page_number': page_number
+    }
+
     return render(request, 'movies/index.html', context)
 
 
