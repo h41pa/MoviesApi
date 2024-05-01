@@ -2,6 +2,7 @@ import requests
 
 from django.shortcuts import render
 
+
 def movie_list(request):
     search_query = request.GET.get('query')
     page_number = request.GET.get('page', 1)
