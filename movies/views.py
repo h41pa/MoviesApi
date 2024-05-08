@@ -1,6 +1,8 @@
 import requests
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from django.contrib import messages
 
 
 def movie_list(request):
@@ -10,7 +12,6 @@ def movie_list(request):
     else:
         search_query = request.GET.get('query')
         page_number = request.GET.get('page', 1)
-
 
     api_key = '07caae28dab3a3943e0d33a58d4a88fc'
     base_url = 'https://api.themoviedb.org/3'
@@ -70,3 +71,15 @@ def movie_detail(request, movie_id):
     }
 
     return render(request, 'movies/detail.html', context)
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('thankyou')
+
+    else:
+        form = ContactForm(request.POST)
+    return render(request, 'movies/contact.html', {'form': form})

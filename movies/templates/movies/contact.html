@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <div class="lightBg">
+    <div class="container">
+        <form id="contactForm" method="POST">
+        {% csrf_token %}
+            <label>Name</label>
+            {{form.name}}
+            <label> Email</label>
+            {{form.email}}
+            <label >Message</label>
+            {{form.message}}
+
+            <input class='btn btn-info' type="submit" value="Submit">
+        </form>
+    </div>
+  </div>
+</body>
+</html>
