@@ -15,7 +15,12 @@
            {% csrf_token %}
            <input type="search" name="query" placeholder="Search..." class="search-input">
            <button type="submit" class="search-button">Search</button>
+
        </form>
+           <a href="{% url 'contact' %}"><img src="/static/images/contact.png" alt="Contact Me" style=" position: absolute;
+    top: 80px;
+    left: 20px;
+}"></a>
    </div>
 
 <!--   container -->
@@ -44,9 +49,9 @@
 {% endif %}
 <div class="pagination-bar">
     <div class="image-link">
-        <a href="https://github.com/h41pa"><img src="/static/css/github.png" alt="Github"></a>
-        <a href="https://www.linkedin.com/in/chelu-madalin-2298b3a7/"><img src="/static/css/linkedin.png" alt="linkedin"></a>
-        <a href="https://discordapp.com/users/176105464675827712"><img src="/static/css/discord.png" alt="discord"></a>
+        <a href="https://github.com/h41pa"><img src="/static/images/github.png" alt="Github"></a>
+        <a href="https://www.linkedin.com/in/chelu-madalin-2298b3a7/"><img src="/static/images/linkedin.png" alt="linkedin"></a>
+        <a href="https://discordapp.com/users/176105464675827712"><img src="/static/images/discord.png" alt="discord"></a>
     </div>
     <div>
         {% if prev_page %}
